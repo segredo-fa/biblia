@@ -13,13 +13,8 @@
 		a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
 		document.head.appendChild(a);
 	</script>
-	<script
-		src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-		data-utmify-prevent-xcod-sck
-		data-utmify-prevent-subids
-		async
-		defer
-	></script>
+	<script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck
+		data-utmify-prevent-subids async defer></script>
 	<style class="wpbf-google-fonts"></style>
 	<style id="wp-img-auto-sizes-contain-inline-css">
 		img:is([sizes=auto i], [sizes^="auto," i]) {
@@ -511,12 +506,15 @@
 		.elementor-element-592017e .swiper-wrapper {
 			transition-timing-function: linear !important;
 		}
+
 		.elementor-element-592017e .swiper-slide {
 			width: auto !important;
 		}
+
 		.elementor-element-592017e .swiper-slide img {
 			width: auto !important;
-			max-height: 400px; /* Ajuste conforme necessário */
+			max-height: 400px;
+			/* Ajuste conforme necessário */
 		}
 
 		/*# sourceURL=wpbf-style-inline-css */
@@ -680,8 +678,8 @@
 					data-id="592017e" data-element_type="widget" data-e-type="widget"
 					data-widget_type="image-carousel.default">
 					<div class="elementor-widget-container">
-						<div id="biblia-swiper" class="swiper" role="region"
-							aria-roledescription="carousel" aria-label="Carrossel de imagens" dir="ltr">
+						<div id="biblia-swiper" class="swiper" role="region" aria-roledescription="carousel"
+							aria-label="Carrossel de imagens" dir="ltr">
 							<div class="elementor-image-carousel swiper-wrapper" aria-live="off">
 								<div class="swiper-slide" role="group" aria-roledescription="slide"
 									aria-label="1 de 12">
@@ -1515,13 +1513,13 @@
 
 	<script>
 		// Inicialização robusta do carrossel de Bíblias
-		document.addEventListener('DOMContentLoaded', function() {
+		document.addEventListener('DOMContentLoaded', function () {
 			const initSwiper = () => {
 				const swiperElement = document.querySelector('#biblia-swiper');
-				if (swiperElement) {
+				if (swiperElement && !swiperElement.swiper) {
 					const swiper = new Swiper('#biblia-swiper', {
 						loop: true,
-						speed: 10000,
+						speed: 6000,
 						slidesPerView: 'auto',
 						spaceBetween: 20,
 						allowTouchMove: true,
@@ -1533,29 +1531,33 @@
 							delay: 0,
 							disableOnInteraction: false,
 							pauseOnMouseEnter: false,
+							waitForTransition: false,
 						},
 						// Garante que o efeito linear seja aplicado via JS também
 						on: {
-							init: function() {
+							init: function () {
 								this.el.querySelector('.swiper-wrapper').style.transitionTimingFunction = 'linear';
+							},
+							touchEnd: function () {
+								this.autoplay.start();
 							},
 						},
 					});
-					
+
 					// Forçar o início do autoplay
 					swiper.autoplay.start();
 				}
 			};
 
-			// Tenta inicializar imediatamente
+			// Tenta inicializar assim que possível
 			initSwiper();
 
 			// Fallback para garantir que o Elementor não sobrescreva
 			window.addEventListener('load', initSwiper);
-			
+
 			// Hook extra para garantir que o Elementor Frontend não quebre a inicialização manual
 			if (window.elementorFrontend) {
-				elementorFrontend.hooks.addAction('frontend/element_ready/image-carousel.default', function($scope) {
+				elementorFrontend.hooks.addAction('frontend/element_ready/image-carousel.default', function ($scope) {
 					if ($scope.find('#biblia-swiper').length) {
 						initSwiper();
 					}
