@@ -53,6 +53,10 @@
 	</script>
 
 	<!-- Fontes do Design System: Outfit e Plus Jakarta Sans -->
+	<!-- CRO Performance: Preconnect & DNS-Prefetch Checkout -->
+	<link rel="preconnect" href="https://pay.wiapy.com">
+	<link rel="dns-prefetch" href="https://pay.wiapy.com">
+
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="preload"
@@ -1196,6 +1200,38 @@
 				});
 			});
 		});
+	</script>
+
+	<!-- CRO Performance: Speculation Rules & Prefetch Fallback -->
+	<script type="speculationrules">
+	{
+		"prefetch": [
+			{
+				"source": "list",
+				"urls": ["https://pay.wiapy.com/Qhy3ENqIuC"],
+				"eagerness": "eager"
+			}
+		]
+	}
+	</script>
+	<script>
+		(function() {
+			const checkoutUrl = "https://pay.wiapy.com/Qhy3ENqIuC";
+			let prefetched = false;
+			function prefetchCheckout() {
+				if (prefetched) return;
+				const link = document.createElement('link');
+				link.rel = 'prefetch';
+				link.href = checkoutUrl;
+				document.head.appendChild(link);
+				prefetched = true;
+			}
+			document.querySelectorAll('a[href*="pay.wiapy.com"]').forEach(button => {
+				button.addEventListener('mouseenter', prefetchCheckout, { once: true });
+				button.addEventListener('touchstart', prefetchCheckout, { once: true });
+			});
+			setTimeout(prefetchCheckout, 2000);
+		})();
 	</script>
 </body>
 
