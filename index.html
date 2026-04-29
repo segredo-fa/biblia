@@ -1,34 +1,75 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 	<title>300 Capas de Bíblia Personalizadas – Site Oficial</title>
-	
+
 	<!-- Meta e Preloads Originais -->
 	<link rel="preload" as="image" href="images/mockup-mobile.webp" fetchpriority="high">
 	<meta name="robots" content="max-image-preview:large">
 
-	<!-- Pixels Originais -->
+	<!-- Scripts Delayed for Performance -->
 	<script>
-		window.pixelId = "69e31b85f326627e75d041a2";
-		var a = document.createElement("script");
-		a.setAttribute("async", "");
-		a.setAttribute("defer", "");
-		a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-		document.head.appendChild(a);
+		function loadExternalScripts() {
+			if (window.scriptsLoaded) return;
+			window.scriptsLoaded = true;
+
+			// UTMify & Pixel
+			window.pixelId = "69e31b85f326627e75d041a2";
+			var a = document.createElement("script");
+			a.setAttribute("async", "");
+			a.setAttribute("defer", "");
+			a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+			document.head.appendChild(a);
+
+			var b = document.createElement("script");
+			b.setAttribute("async", "");
+			b.setAttribute("defer", "");
+			b.setAttribute("src", "https://cdn.utmify.com.br/scripts/utms/latest.js");
+			b.setAttribute("data-utmify-prevent-xcod-sck", "");
+			b.setAttribute("data-utmify-prevent-subids", "");
+			document.head.appendChild(b);
+
+			// Swiper JS
+			var s = document.createElement("script");
+			s.src = "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js";
+			s.onload = initSwiper;
+			document.body.appendChild(s);
+
+			// Lucide Icons
+			var l = document.createElement("script");
+			l.src = "https://unpkg.com/lucide@latest";
+			l.onload = function () { lucide.createIcons(); };
+			document.body.appendChild(l);
+		}
+
+		// Trigger loading on interaction or after 4 seconds
+		window.addEventListener('scroll', loadExternalScripts, { once: true });
+		window.addEventListener('mousemove', loadExternalScripts, { once: true });
+		window.addEventListener('touchstart', loadExternalScripts, { once: true });
+		setTimeout(loadExternalScripts, 4000);
 	</script>
-	<script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
 
 	<!-- Fontes do Design System: Outfit e Plus Jakarta Sans -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="preload" href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-	<noscript><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet"></noscript>
+	<link rel="preload"
+		href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
+		as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<noscript>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
+			rel="stylesheet">
+	</noscript>
 
 	<!-- Swiper CSS -->
-	<link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-	<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /></noscript>
+	<link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" as="style"
+		onload="this.onload=null;this.rel='stylesheet'">
+	<noscript>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+	</noscript>
 
 	<!-- Ícones Lucide -->
 
@@ -63,8 +104,10 @@
 			--radius-lg: 24px;
 			--radius-full: 9999px;
 			--border-width: 2px;
-			--blob-radius-1: 24px 24px 24px 0px; /* Speech bubble */
-			--blob-radius-2: 9999px 9999px 0 0; /* Arch */
+			--blob-radius-1: 24px 24px 24px 0px;
+			/* Speech bubble */
+			--blob-radius-2: 9999px 9999px 0 0;
+			/* Arch */
 
 			/* Shadows */
 			--shadow-pop: 4px 4px 0px 0px #1E293B;
@@ -91,7 +134,12 @@
 			overflow-x: hidden;
 		}
 
-		h1, h2, h3, h4, h5, h6 {
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
 			font-family: var(--font-heading);
 			font-weight: 800;
 			line-height: 1.1;
@@ -118,21 +166,37 @@
 		   UTILITIES & LAYOUT
 		   ----------------------------------- */
 		.container {
-			max-width: 1152px; /* max-w-6xl */
+			max-width: 1152px;
+			/* max-w-6xl */
 			margin: 0 auto;
 			padding: 0 24px;
 		}
 
 		.section {
-			padding: 96px 0; /* py-24 */
+			padding: 96px 0;
+			/* py-24 */
 			position: relative;
 		}
 
-		.text-center { text-align: center; }
-		.font-bold { font-weight: 700; }
-		.text-accent { color: var(--accent); }
-		.text-secondary { color: var(--secondary); }
-		.text-tertiary { color: var(--tertiary); }
+		.text-center {
+			text-align: center;
+		}
+
+		.font-bold {
+			font-weight: 700;
+		}
+
+		.text-accent {
+			color: var(--accent);
+		}
+
+		.text-secondary {
+			color: var(--secondary);
+		}
+
+		.text-tertiary {
+			color: var(--tertiary);
+		}
 
 		/* Patterns */
 		.bg-dot-grid {
@@ -141,19 +205,17 @@
 		}
 
 		.bg-diagonal {
-			background: repeating-linear-gradient(
-				45deg,
-				transparent,
-				transparent 10px,
-				rgba(226, 232, 240, 0.4) 10px,
-				rgba(226, 232, 240, 0.4) 20px
-			);
+			background: repeating-linear-gradient(45deg,
+					transparent,
+					transparent 10px,
+					rgba(226, 232, 240, 0.4) 10px,
+					rgba(226, 232, 240, 0.4) 20px);
 		}
 
 		/* -----------------------------------
 		   COMPONENTS
 		   ----------------------------------- */
-		
+
 		/* The Candy Button */
 		.btn-primary {
 			display: inline-flex;
@@ -172,7 +234,8 @@
 			transition: all 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
 			cursor: pointer;
 			max-width: 480px;
-			margin: 0; /* Margin handled by wrapper */
+			margin: 0;
+			/* Margin handled by wrapper */
 		}
 
 		.cta-wrapper {
@@ -367,7 +430,8 @@
 			align-items: center;
 		}
 
-		.hero-text, .hero-image-wrapper {
+		.hero-text,
+		.hero-image-wrapper {
 			min-width: 0;
 		}
 
@@ -426,8 +490,10 @@
 			align-items: center;
 		}
 
-		.carousel-block, .benefits-block {
-			min-width: 0; /* Prevents CSS Grid blowout */
+		.carousel-block,
+		.benefits-block {
+			min-width: 0;
+			/* Prevents CSS Grid blowout */
 		}
 
 		/* Swiper Customization */
@@ -437,11 +503,12 @@
 			box-shadow: var(--shadow-pop);
 			overflow: hidden;
 			background-color: var(--card);
-			padding: 24px 16px; /* Adicionado padding lateral */
+			padding: 24px 16px;
+			/* Adicionado padding lateral */
 			position: relative;
 			max-width: 100vw;
 		}
-		
+
 		.swiper-container-wrapper::before {
 			content: '';
 			position: absolute;
@@ -453,7 +520,8 @@
 		}
 
 		.swiper {
-			padding: 8px !important; /* Espaço para a sombra dos slides não cortar */
+			padding: 8px !important;
+			/* Espaço para a sombra dos slides não cortar */
 		}
 
 		.swiper-slide {
@@ -461,7 +529,7 @@
 			border: var(--border-width) solid var(--foreground);
 			border-radius: var(--radius-sm);
 			overflow: hidden;
-			box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+			box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
 			background: #fff;
 			z-index: 1;
 		}
@@ -580,37 +648,80 @@
 
 		/* Responsive */
 		@media (max-width: 992px) {
-			.hero-grid, .features-grid {
+
+			.hero-grid,
+			.features-grid {
 				grid-template-columns: 1fr;
 				gap: 48px;
 			}
+
 			.bonus-grid {
 				grid-template-columns: 1fr;
 			}
+
 			.bonus-grid::before {
 				display: none;
 			}
+
 			.sticker-card.featured {
 				transform: none;
 			}
+
 			.sticker-card.featured:hover {
 				transform: none;
 			}
 		}
 
 		@media (max-width: 768px) {
-			.section { padding: 64px 0; }
-			.hero-text h1 { font-size: 2.25rem; }
-			.price-huge { font-size: 3.5rem; }
-			.btn-primary { padding: 16px 24px; font-size: 1rem; width: 100%; }
-			.pricing-card { padding: 32px 16px; }
-			.badge-popular { font-size: 1rem; padding: 6px 16px; top: -15px; right: -10px; }
-			.swiper-slide { width: 160px !important; }
+			.section {
+				padding: 64px 0;
+			}
 
-			.features-grid { gap: 32px; }
-			.sticker-card { padding: 24px 16px; }
-			.faq-accordion details summary { font-size: 1.1rem; padding: 16px; }
-			.compra-segura-img { max-width: 100%; }
+			.hero-text h1 {
+				font-size: 2.25rem;
+			}
+
+			.price-huge {
+				font-size: 3.5rem;
+			}
+
+			.btn-primary {
+				padding: 16px 24px;
+				font-size: 1rem;
+				width: 100%;
+			}
+
+			.pricing-card {
+				padding: 32px 16px;
+			}
+
+			.badge-popular {
+				font-size: 1rem;
+				padding: 6px 16px;
+				top: -15px;
+				right: -10px;
+			}
+
+			.swiper-slide {
+				width: 160px !important;
+			}
+
+			.features-grid {
+				gap: 32px;
+			}
+
+			.sticker-card {
+				padding: 24px 16px;
+			}
+
+			.faq-accordion details summary {
+				font-size: 1.1rem;
+				padding: 16px;
+			}
+
+			.compra-segura-img {
+				max-width: 100%;
+			}
 		}
 
 		/* Sale Notification Override */
@@ -635,10 +746,12 @@
 			transition: all .3s cubic-bezier(0.34, 1.56, 0.64, 1);
 			z-index: 9999;
 		}
+
 		.sale-notification.show {
 			opacity: 1;
 			transform: translateY(0);
 		}
+
 		.sale-notification .icon {
 			width: 24px;
 			height: 24px;
@@ -651,6 +764,7 @@
 			margin-right: 12px;
 			flex-shrink: 0;
 		}
+
 		.sale-notification .icon svg {
 			width: 14px;
 			height: 14px;
@@ -660,6 +774,7 @@
 		}
 	</style>
 </head>
+
 <body>
 
 	<!-- Top Bar -->
@@ -678,7 +793,8 @@
 					<p>Personalize em minutos e envie direto para impressão sem erro de tamanho, sem dor de cabeça.</p>
 				</div>
 				<div class="hero-image-wrapper">
-					<img src="images/mockup-mobile.webp" alt="300 Capas de Bíblia" class="hero-image" fetchpriority="high" loading="eager">
+					<img src="images/mockup-mobile.webp" alt="300 Capas de Bíblia" class="hero-image"
+						fetchpriority="high" loading="eager" width="400" height="400">
 				</div>
 			</div>
 			<div class="cta-wrapper">
@@ -695,31 +811,44 @@
 	<!-- Carousel & Benefits Section -->
 	<section class="section features-section">
 		<div class="container features-grid">
-			
+
 			<div class="carousel-block">
 				<h2 class="text-center" style="margin-bottom: 32px; font-size: 2.5rem;">O Que Você Vai Receber</h2>
-				
+
 				<div class="swiper-container-wrapper">
 					<div id="biblia-swiper" class="swiper" dir="ltr">
 						<div class="swiper-wrapper">
-							<div class="swiper-slide"><img src="images/1.webp" alt="Capa 1" loading="lazy"></div>
-							<div class="swiper-slide"><img src="images/2.webp" alt="Capa 2" loading="lazy"></div>
-							<div class="swiper-slide"><img src="images/3.webp" alt="Capa 3" loading="lazy"></div>
-							<div class="swiper-slide"><img src="images/4.webp" alt="Capa 4" loading="lazy"></div>
-							<div class="swiper-slide"><img src="images/5.webp" alt="Capa 5" loading="lazy"></div>
-							<div class="swiper-slide"><img src="images/6.webp" alt="Capa 6" loading="lazy"></div>
-							<div class="swiper-slide"><img src="images/7.webp" alt="Capa 7" loading="lazy"></div>
-							<div class="swiper-slide"><img src="images/8.webp" alt="Capa 8" loading="lazy"></div>
-							<div class="swiper-slide"><img src="images/9.webp" alt="Capa 9" loading="lazy"></div>
-							<div class="swiper-slide"><img src="images/10.webp" alt="Capa 10" loading="lazy"></div>
-							<div class="swiper-slide"><img src="images/11.webp" alt="Capa 11" loading="lazy"></div>
-							<div class="swiper-slide"><img src="images/12.webp" alt="Capa 12" loading="lazy"></div>
+							<div class="swiper-slide"><img src="images/1.webp" alt="Capa 1" loading="lazy" width="273"
+									height="394"></div>
+							<div class="swiper-slide"><img src="images/2.webp" alt="Capa 2" loading="lazy" width="273"
+									height="394"></div>
+							<div class="swiper-slide"><img src="images/3.webp" alt="Capa 3" loading="lazy" width="273"
+									height="394"></div>
+							<div class="swiper-slide"><img src="images/4.webp" alt="Capa 4" loading="lazy" width="273"
+									height="394"></div>
+							<div class="swiper-slide"><img src="images/5.webp" alt="Capa 5" loading="lazy" width="273"
+									height="394"></div>
+							<div class="swiper-slide"><img src="images/6.webp" alt="Capa 6" loading="lazy" width="273"
+									height="394"></div>
+							<div class="swiper-slide"><img src="images/7.webp" alt="Capa 7" loading="lazy" width="273"
+									height="394"></div>
+							<div class="swiper-slide"><img src="images/8.webp" alt="Capa 8" loading="lazy" width="273"
+									height="394"></div>
+							<div class="swiper-slide"><img src="images/9.webp" alt="Capa 9" loading="lazy" width="273"
+									height="394"></div>
+							<div class="swiper-slide"><img src="images/10.webp" alt="Capa 10" loading="lazy" width="273"
+									height="394"></div>
+							<div class="swiper-slide"><img src="images/11.webp" alt="Capa 11" loading="lazy" width="273"
+									height="394"></div>
+							<div class="swiper-slide"><img src="images/12.webp" alt="Capa 12" loading="lazy" width="273"
+									height="394"></div>
 						</div>
 					</div>
 				</div>
 
 				<div style="margin-top: 40px; text-align: center;">
-					<img src="images/q.webp" alt="Como usar o Canva" style="border-radius: var(--radius-md); border: var(--border-width) solid var(--foreground); box-shadow: var(--shadow-pop); display: inline-block;">
+					<img src="images/q.webp" alt="Como usar o Canva" width="640" height="640"
+						style="border-radius: var(--radius-md); border: var(--border-width) solid var(--foreground); box-shadow: var(--shadow-pop); display: inline-block;">
 				</div>
 			</div>
 
@@ -731,11 +860,13 @@
 					</li>
 					<li>
 						<div class="list-icon-wrapper"><i data-lucide="check"></i></div>
-						<span>Modelos femininos, masculinos e modernos, inspirados nas capas mais usadas atualmente;</span>
+						<span>Modelos femininos, masculinos e modernos, inspirados nas capas mais usadas
+							atualmente;</span>
 					</li>
 					<li>
 						<div class="list-icon-wrapper"><i data-lucide="check"></i></div>
-						<span>Estilos variados como floral, minimalista, elegante, moderno e personalizados com nome;</span>
+						<span>Estilos variados como floral, minimalista, elegante, moderno e personalizados com
+							nome;</span>
 					</li>
 					<li>
 						<div class="list-icon-wrapper"><i data-lucide="check"></i></div>
@@ -754,7 +885,7 @@
 						<span>Você recebe tudo na hora, direto no seu e-mail.</span>
 					</li>
 				</ul>
-				
+
 				<a href="#card" class="btn-primary" style="margin-top: 32px;">
 					👉 Quero minhas 300 capas
 					<div class="btn-icon-wrapper">
@@ -768,15 +899,20 @@
 	<!-- Bonus Section -->
 	<section class="section bg-diagonal">
 		<div class="container">
-			<h2 class="text-center" style="font-size: 3rem; margin-bottom: 24px;">E ainda você recebe 3 Bônus Grátis</h2>
-			
+			<h2 class="text-center" style="font-size: 3rem; margin-bottom: 24px;">E ainda você recebe 3 Bônus Grátis
+			</h2>
+
 			<div class="bonus-grid">
 				<!-- Bonus 1 -->
 				<div class="sticker-card" style="background-color: var(--muted);">
-					<div class="sticker-icon" style="background-color: var(--accent);"><i data-lucide="gift" style="color: #fff"></i></div>
-					<img src="images/tt.webp" alt="Bônus 1" class="bonus-img">
+					<div class="sticker-icon" style="background-color: var(--accent);"><i data-lucide="gift"
+							style="color: #fff"></i></div>
+					<img src="images/tt.webp" alt="Bônus 1" class="bonus-img" width="567" height="567">
 					<h3>Como Personalizar e Imprimir suas Capas no Canva</h3>
-					<p style="font-size: 1rem; color: var(--muted-fg); flex-grow: 1;">Um guia simples e direto para você usar o pack com segurança desde o primeiro acesso. Você aprende exatamente onde clicar no Canva, como personalizar suas capas sem bagunçar o layout e como exportar corretamente para impressão.</p>
+					<p style="font-size: 1rem; color: var(--muted-fg); flex-grow: 1;">Um guia simples e direto para você
+						usar o pack com segurança desde o primeiro acesso. Você aprende exatamente onde clicar no Canva,
+						como personalizar suas capas sem bagunçar o layout e como exportar corretamente para impressão.
+					</p>
 					<div style="margin-top: 16px; font-weight: 800; font-size: 1.25rem;">
 						Valor: <span class="price-strike">R$27</span> <span class="text-accent">GRÁTIS</span>
 					</div>
@@ -784,10 +920,13 @@
 
 				<!-- Bonus 2 -->
 				<div class="sticker-card" style="background-color: var(--background);">
-					<div class="sticker-icon" style="background-color: var(--secondary);"><i data-lucide="check-circle-2" style="color: #fff"></i></div>
-					<img src="images/r.webp" alt="Bônus 2" class="bonus-img">
+					<div class="sticker-icon" style="background-color: var(--secondary);"><i
+							data-lucide="check-circle-2" style="color: #fff"></i></div>
+					<img src="images/r.webp" alt="Bônus 2" class="bonus-img" width="567" height="567">
 					<h3>Checklist Final Antes de Imprimir e Usar sua Capa</h3>
-					<p style="font-size: 1rem; color: var(--muted-fg); flex-grow: 1;">Antes de imprimir, você confere tudo em poucos segundos, evitando erros de tamanho, margem e exportação do arquivo. Isso reduz retrabalho e garante um resultado final mais profissional.</p>
+					<p style="font-size: 1rem; color: var(--muted-fg); flex-grow: 1;">Antes de imprimir, você confere
+						tudo em poucos segundos, evitando erros de tamanho, margem e exportação do arquivo. Isso reduz
+						retrabalho e garante um resultado final mais profissional.</p>
 					<div style="margin-top: 16px; font-weight: 800; font-size: 1.25rem;">
 						Valor: <span class="price-strike">R$27</span> <span class="text-secondary">GRÁTIS</span>
 					</div>
@@ -795,10 +934,13 @@
 
 				<!-- Bonus 3 -->
 				<div class="sticker-card" style="background-color: var(--muted);">
-					<div class="sticker-icon" style="background-color: var(--tertiary);"><i data-lucide="star"></i></div>
-					<img src="images/op.webp" alt="Bônus 3" class="bonus-img">
+					<div class="sticker-icon" style="background-color: var(--tertiary);"><i data-lucide="star"></i>
+					</div>
+					<img src="images/op.webp" alt="Bônus 3" class="bonus-img" width="567" height="567">
 					<h3>Capas Extras Mais Vendidas (Seleção Especial)</h3>
-					<p style="font-size: 1rem; color: var(--muted-fg); flex-grow: 1;">Uma seleção adicional de modelos campeões de pedido. Aumenta suas opções sem esforço, traz mais variedade e dá sensação de exclusividade, sem complicar o uso.</p>
+					<p style="font-size: 1rem; color: var(--muted-fg); flex-grow: 1;">Uma seleção adicional de modelos
+						campeões de pedido. Aumenta suas opções sem esforço, traz mais variedade e dá sensação de
+						exclusividade, sem complicar o uso.</p>
 					<div style="margin-top: 16px; font-weight: 800; font-size: 1.25rem;">
 						Valor: <span class="price-strike">R$27</span> <span class="text-tertiary">GRÁTIS</span>
 					</div>
@@ -810,36 +952,63 @@
 	<!-- Pricing Section -->
 	<section id="card" class="section pricing-section">
 		<div class="container">
-			
+
 			<div class="pricing-card">
 				<div class="badge-popular">MEGA OFERTA</div>
-				
-				<img src="images/mockup-mobile.webp" alt="300 Capas de Bíblia" style="max-width: 250px; margin: 0 auto 24px; border-radius: var(--radius-sm); border: var(--border-width) solid var(--foreground); box-shadow: 4px 4px 0px var(--foreground);">
-				
+
+				<img src="images/mockup-mobile.webp" alt="300 Capas de Bíblia" width="400" height="400"
+					style="max-width: 250px; margin: 0 auto 24px; border-radius: var(--radius-sm); border: var(--border-width) solid var(--foreground); box-shadow: 4px 4px 0px var(--foreground);">
+
 				<ul class="icon-list" style="text-align: left; max-width: 450px; margin: 0 auto 32px;">
-					<li><div class="list-icon-wrapper"><i data-lucide="check"></i></div><span>Capas de Bíblia personalizada no canva</span></li>
-					<li><div class="list-icon-wrapper"><i data-lucide="check"></i></div><span>300 Capas prontas e editáveis</span></li>
-					<li><div class="list-icon-wrapper"><i data-lucide="check"></i></div><span>🎁 <b>Bônus #1</b> Guia de uso rápido passo a passo</span></li>
-					<li><div class="list-icon-wrapper"><i data-lucide="check"></i></div><span>🎁 <b>Bônus #2</b> Checklist final antes de imprimir e usar</span></li>
-					<li><div class="list-icon-wrapper"><i data-lucide="check"></i></div><span>🎁 <b>Bônus #3</b> Pack extra de capas mais usadas e vendidas</span></li>
-					<li><div class="list-icon-wrapper"><i data-lucide="check"></i></div><span>Garantia de 7 dias</span></li>
-					<li><div class="list-icon-wrapper"><i data-lucide="check"></i></div><span>Atualizações futuras</span></li>
-					<li><div class="list-icon-wrapper"><i data-lucide="check"></i></div><span>Acesso imediato e vitalício</span></li>
+					<li>
+						<div class="list-icon-wrapper"><i data-lucide="check"></i></div><span>Capas de Bíblia
+							personalizada no canva</span>
+					</li>
+					<li>
+						<div class="list-icon-wrapper"><i data-lucide="check"></i></div><span>300 Capas prontas e
+							editáveis</span>
+					</li>
+					<li>
+						<div class="list-icon-wrapper"><i data-lucide="check"></i></div><span>🎁 <b>Bônus #1</b> Guia de
+							uso rápido passo a passo</span>
+					</li>
+					<li>
+						<div class="list-icon-wrapper"><i data-lucide="check"></i></div><span>🎁 <b>Bônus #2</b>
+							Checklist final antes de imprimir e usar</span>
+					</li>
+					<li>
+						<div class="list-icon-wrapper"><i data-lucide="check"></i></div><span>🎁 <b>Bônus #3</b> Pack
+							extra de capas mais usadas e vendidas</span>
+					</li>
+					<li>
+						<div class="list-icon-wrapper"><i data-lucide="check"></i></div><span>Garantia de 7 dias</span>
+					</li>
+					<li>
+						<div class="list-icon-wrapper"><i data-lucide="check"></i></div><span>Atualizações
+							futuras</span>
+					</li>
+					<li>
+						<div class="list-icon-wrapper"><i data-lucide="check"></i></div><span>Acesso imediato e
+							vitalício</span>
+					</li>
 				</ul>
 
 				<hr style="border: 0; border-top: 2px dashed var(--foreground); margin: 32px 0;">
 
-				<div style="font-size: 1.25rem; font-weight: 700;">De <span class="price-strike">R$ 97,00</span> por</div>
+				<div style="font-size: 1.25rem; font-weight: 700;">De <span class="price-strike">R$ 97,00</span> por
+				</div>
 				<div class="price-huge">R$ 14,90</div>
 
-				<a href="https://pay.wiapy.com/Qhy3ENqIuC" class="btn-primary" style="margin-top: 16px; font-size: 1.1rem; padding: 20px;">
+				<a href="https://pay.wiapy.com/Qhy3ENqIuC" class="btn-primary"
+					style="margin-top: 16px; font-size: 1.1rem; padding: 20px;">
 					👉 Comprar agora mesmo
 					<div class="btn-icon-wrapper">
 						<i data-lucide="shopping-cart"></i>
 					</div>
 				</a>
 
-				<img src="images/compra-segura-1024x147-1-1.webp" alt="Compra Segura" class="compra-segura-img">
+				<img src="images/compra-segura-1024x147-1-1.webp" alt="Compra Segura" class="compra-segura-img"
+					width="640" height="92">
 			</div>
 
 		</div>
@@ -849,15 +1018,16 @@
 	<section class="section">
 		<div class="container" style="max-width: 800px;">
 			<h2 class="text-center" style="font-size: 3rem; margin-bottom: 40px;">Quem comprou, adorou ❤️</h2>
-			<img src="images/ll.webp" alt="Depoimentos" class="testimonials-img">
+			<img src="images/ll.webp" alt="Depoimentos" class="testimonials-img" width="410" height="1024">
 
 			<h2 class="text-center" style="font-size: 2.5rem; margin-top: 96px;">Perguntas Frequentes</h2>
-			
+
 			<div class="faq-accordion">
 				<details class="sticker-faq" open>
 					<summary>Como vou receber o material? <i data-lucide="chevron-down"></i></summary>
 					<div class="faq-content">
-						<p style="margin-top: 16px;">Após a compra, você recebe acesso imediato pelo seu e-mail e também pode receber pelo WhatsApp. É só acessar e começar a usar na hora.</p>
+						<p style="margin-top: 16px;">Após a compra, você recebe acesso imediato pelo seu e-mail e também
+							pode receber pelo WhatsApp. É só acessar e começar a usar na hora.</p>
 					</div>
 				</details>
 
@@ -871,28 +1041,32 @@
 				<details class="sticker-faq">
 					<summary>Preciso de impressora? <i data-lucide="chevron-down"></i></summary>
 					<div class="faq-content">
-						<p style="margin-top: 16px;">Não necessariamente. Você pode usar as capas digitalmente ou enviar para qualquer gráfica imprimir. Tudo já está pronto para facilitar.</p>
+						<p style="margin-top: 16px;">Não necessariamente. Você pode usar as capas digitalmente ou enviar
+							para qualquer gráfica imprimir. Tudo já está pronto para facilitar.</p>
 					</div>
 				</details>
 
 				<details class="sticker-faq">
 					<summary>São quantas capas ao todo? <i data-lucide="chevron-down"></i></summary>
 					<div class="faq-content">
-						<p style="margin-top: 16px;">Você recebe mais de 300 capas de Bíblia prontas e editáveis, além de modelos extras como bônus.</p>
+						<p style="margin-top: 16px;">Você recebe mais de 300 capas de Bíblia prontas e editáveis, além
+							de modelos extras como bônus.</p>
 					</div>
 				</details>
 
 				<details class="sticker-faq">
 					<summary>Quais formas de pagamento são aceitas? <i data-lucide="chevron-down"></i></summary>
 					<div class="faq-content">
-						<p style="margin-top: 16px;">Você pode pagar com cartão de crédito ou PIX de forma simples e segura.</p>
+						<p style="margin-top: 16px;">Você pode pagar com cartão de crédito ou PIX de forma simples e
+							segura..</p>
 					</div>
 				</details>
 
 				<details class="sticker-faq">
 					<summary>Tem garantia? <i data-lucide="chevron-down"></i></summary>
 					<div class="faq-content">
-						<p style="margin-top: 16px;">Sim. Você tem 7 dias de garantia. Se por qualquer motivo não gostar, pode pedir reembolso dentro desse prazo.</p>
+						<p style="margin-top: 16px;">Sim. Você tem 7 dias de garantia. Se por qualquer motivo não
+							gostar, pode pedir reembolso dentro desse prazo.</p>
 					</div>
 				</details>
 			</div>
@@ -905,7 +1079,8 @@
 					</div>
 				</a>
 				<br>
-				<img src="images/compra-segura-1024x147-1-1.webp" alt="Compra Segura" class="compra-segura-img" style="margin-top: 16px;">
+				<img src="images/compra-segura-1024x147-1-1.webp" alt="Compra Segura" class="compra-segura-img"
+					width="640" height="92" style="margin-top: 16px;">
 			</div>
 		</div>
 	</section>
@@ -916,10 +1091,9 @@
 
 	<!-- Scripts Funcionais -->
 	<!-- Lucide Icons -->
-	<script src="https://unpkg.com/lucide@latest" defer></script>
 	<script>
-		document.addEventListener('DOMContentLoaded', function() {
-			lucide.createIcons();
+		document.addEventListener('DOMContentLoaded', function () {
+			// lucide.createIcons() is now handled in loadExternalScripts
 		});
 
 		// Script Data de Hoje
@@ -934,9 +1108,8 @@
 	</script>
 
 	<!-- Swiper Inicialização -->
-	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 	<script>
-		document.addEventListener('DOMContentLoaded', function () {
+		function initSwiper() {
 			const swiper = new Swiper('#biblia-swiper', {
 				loop: true,
 				speed: 4000,
@@ -961,13 +1134,15 @@
 					},
 				},
 			});
-		});
+		}
 	</script>
 
 	<!-- Script de Notificações de Venda -->
 	<div id="notification" class="sale-notification">
 		<div class="icon">
-			<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+			<svg viewBox="0 0 24 24">
+				<polyline points="20 6 9 17 4 12"></polyline>
+			</svg>
 		</div>
 		<span id="notification-text"></span>
 	</div>
@@ -997,7 +1172,7 @@
 				const n = notificationsData[i];
 				text.innerHTML = `<strong>${n.name}</strong> de <strong>${n.city} - ${n.state}</strong> acabou de comprar!`;
 				el.classList.add("show");
-				
+
 				setTimeout(() => {
 					el.classList.remove("show");
 				}, 4000);
@@ -1024,4 +1199,5 @@
 		});
 	</script>
 </body>
+
 </html>
