@@ -6,7 +6,7 @@
 	<title>300 Capas de Bíblia Personalizadas – Site Oficial</title>
 	
 	<!-- Meta e Preloads Originais -->
-	<link rel="preload" as="image" href="images/mockup-mobile.webp">
+	<link rel="preload" as="image" href="images/mockup-mobile.webp" fetchpriority="high">
 	<meta name="robots" content="max-image-preview:large">
 
 	<!-- Pixels Originais -->
@@ -23,13 +23,15 @@
 	<!-- Fontes do Design System: Outfit e Plus Jakarta Sans -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+	<link rel="preload" href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<noscript><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet"></noscript>
 
 	<!-- Swiper CSS -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+	<link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /></noscript>
 
 	<!-- Ícones Lucide -->
-	<script src="https://unpkg.com/lucide@latest"></script>
+
 
 	<style>
 		/* -----------------------------------
@@ -676,7 +678,7 @@
 					<p>Personalize em minutos e envie direto para impressão sem erro de tamanho, sem dor de cabeça.</p>
 				</div>
 				<div class="hero-image-wrapper">
-					<img src="images/mockup-mobile.webp" alt="300 Capas de Bíblia" class="hero-image">
+					<img src="images/mockup-mobile.webp" alt="300 Capas de Bíblia" class="hero-image" fetchpriority="high" loading="eager">
 				</div>
 			</div>
 			<div class="cta-wrapper">
@@ -700,24 +702,24 @@
 				<div class="swiper-container-wrapper">
 					<div id="biblia-swiper" class="swiper" dir="ltr">
 						<div class="swiper-wrapper">
-							<div class="swiper-slide"><img src="https://i.ibb.co/v6k8HqyR/1.webp" alt="Capa 1" loading="lazy"></div>
-							<div class="swiper-slide"><img src="https://i.ibb.co/Y7LSRSs7/2.webp" alt="Capa 2" loading="lazy"></div>
-							<div class="swiper-slide"><img src="https://i.ibb.co/k2KqzsVn/3.webp" alt="Capa 3" loading="lazy"></div>
-							<div class="swiper-slide"><img src="https://i.ibb.co/ymxHvBTB/4.webp" alt="Capa 4" loading="lazy"></div>
-							<div class="swiper-slide"><img src="https://i.ibb.co/nMd3NXCq/5.webp" alt="Capa 5" loading="lazy"></div>
-							<div class="swiper-slide"><img src="https://i.ibb.co/xtHwN8Mb/6.webp" alt="Capa 6" loading="lazy"></div>
-							<div class="swiper-slide"><img src="https://i.ibb.co/k2rn1BMW/7.webp" alt="Capa 7" loading="lazy"></div>
-							<div class="swiper-slide"><img src="https://i.ibb.co/nMbyNbcY/8.webp" alt="Capa 8" loading="lazy"></div>
-							<div class="swiper-slide"><img src="https://i.ibb.co/PvbGQpMP/9.webp" alt="Capa 9" loading="lazy"></div>
-							<div class="swiper-slide"><img src="https://i.ibb.co/Y42bxDMR/10.webp" alt="Capa 10" loading="lazy"></div>
-							<div class="swiper-slide"><img src="https://i.ibb.co/jkCSdzcS/11.webp" alt="Capa 11" loading="lazy"></div>
-							<div class="swiper-slide"><img src="https://i.ibb.co/zHtDb6vJ/12.webp" alt="Capa 12" loading="lazy"></div>
+							<div class="swiper-slide"><img src="images/1.webp" alt="Capa 1" loading="lazy"></div>
+							<div class="swiper-slide"><img src="images/2.webp" alt="Capa 2" loading="lazy"></div>
+							<div class="swiper-slide"><img src="images/3.webp" alt="Capa 3" loading="lazy"></div>
+							<div class="swiper-slide"><img src="images/4.webp" alt="Capa 4" loading="lazy"></div>
+							<div class="swiper-slide"><img src="images/5.webp" alt="Capa 5" loading="lazy"></div>
+							<div class="swiper-slide"><img src="images/6.webp" alt="Capa 6" loading="lazy"></div>
+							<div class="swiper-slide"><img src="images/7.webp" alt="Capa 7" loading="lazy"></div>
+							<div class="swiper-slide"><img src="images/8.webp" alt="Capa 8" loading="lazy"></div>
+							<div class="swiper-slide"><img src="images/9.webp" alt="Capa 9" loading="lazy"></div>
+							<div class="swiper-slide"><img src="images/10.webp" alt="Capa 10" loading="lazy"></div>
+							<div class="swiper-slide"><img src="images/11.webp" alt="Capa 11" loading="lazy"></div>
+							<div class="swiper-slide"><img src="images/12.webp" alt="Capa 12" loading="lazy"></div>
 						</div>
 					</div>
 				</div>
 
 				<div style="margin-top: 40px; text-align: center;">
-					<img src="https://i.ibb.co/G4VMhj9K/q.webp" alt="Como usar o Canva" style="border-radius: var(--radius-md); border: var(--border-width) solid var(--foreground); box-shadow: var(--shadow-pop); display: inline-block;">
+					<img src="images/q.webp" alt="Como usar o Canva" style="border-radius: var(--radius-md); border: var(--border-width) solid var(--foreground); box-shadow: var(--shadow-pop); display: inline-block;">
 				</div>
 			</div>
 
@@ -772,7 +774,7 @@
 				<!-- Bonus 1 -->
 				<div class="sticker-card" style="background-color: var(--muted);">
 					<div class="sticker-icon" style="background-color: var(--accent);"><i data-lucide="gift" style="color: #fff"></i></div>
-					<img src="https://i.ibb.co/f7vS2pg/tt.webp" alt="Bônus 1" class="bonus-img">
+					<img src="images/tt.webp" alt="Bônus 1" class="bonus-img">
 					<h3>Como Personalizar e Imprimir suas Capas no Canva</h3>
 					<p style="font-size: 1rem; color: var(--muted-fg); flex-grow: 1;">Um guia simples e direto para você usar o pack com segurança desde o primeiro acesso. Você aprende exatamente onde clicar no Canva, como personalizar suas capas sem bagunçar o layout e como exportar corretamente para impressão.</p>
 					<div style="margin-top: 16px; font-weight: 800; font-size: 1.25rem;">
@@ -783,7 +785,7 @@
 				<!-- Bonus 2 -->
 				<div class="sticker-card" style="background-color: var(--background);">
 					<div class="sticker-icon" style="background-color: var(--secondary);"><i data-lucide="check-circle-2" style="color: #fff"></i></div>
-					<img src="https://i.ibb.co/Kc0t2CwR/r.webp" alt="Bônus 2" class="bonus-img">
+					<img src="images/r.webp" alt="Bônus 2" class="bonus-img">
 					<h3>Checklist Final Antes de Imprimir e Usar sua Capa</h3>
 					<p style="font-size: 1rem; color: var(--muted-fg); flex-grow: 1;">Antes de imprimir, você confere tudo em poucos segundos, evitando erros de tamanho, margem e exportação do arquivo. Isso reduz retrabalho e garante um resultado final mais profissional.</p>
 					<div style="margin-top: 16px; font-weight: 800; font-size: 1.25rem;">
@@ -794,7 +796,7 @@
 				<!-- Bonus 3 -->
 				<div class="sticker-card" style="background-color: var(--muted);">
 					<div class="sticker-icon" style="background-color: var(--tertiary);"><i data-lucide="star"></i></div>
-					<img src="https://i.ibb.co/XxzC5RyX/op.webp" alt="Bônus 3" class="bonus-img">
+					<img src="images/op.webp" alt="Bônus 3" class="bonus-img">
 					<h3>Capas Extras Mais Vendidas (Seleção Especial)</h3>
 					<p style="font-size: 1rem; color: var(--muted-fg); flex-grow: 1;">Uma seleção adicional de modelos campeões de pedido. Aumenta suas opções sem esforço, traz mais variedade e dá sensação de exclusividade, sem complicar o uso.</p>
 					<div style="margin-top: 16px; font-weight: 800; font-size: 1.25rem;">
@@ -837,7 +839,7 @@
 					</div>
 				</a>
 
-				<img src="https://i.ibb.co/LdB9X35y/compra-segura-1024x147-1-1.webp" alt="Compra Segura" class="compra-segura-img">
+				<img src="images/compra-segura-1024x147-1-1.webp" alt="Compra Segura" class="compra-segura-img">
 			</div>
 
 		</div>
@@ -847,7 +849,7 @@
 	<section class="section">
 		<div class="container" style="max-width: 800px;">
 			<h2 class="text-center" style="font-size: 3rem; margin-bottom: 40px;">Quem comprou, adorou ❤️</h2>
-			<img src="https://i.ibb.co/Zzg3k8dz/ll.webp" alt="Depoimentos" class="testimonials-img">
+			<img src="images/ll.webp" alt="Depoimentos" class="testimonials-img">
 
 			<h2 class="text-center" style="font-size: 2.5rem; margin-top: 96px;">Perguntas Frequentes</h2>
 			
@@ -903,7 +905,7 @@
 					</div>
 				</a>
 				<br>
-				<img src="https://i.ibb.co/LdB9X35y/compra-segura-1024x147-1-1.webp" alt="Compra Segura" class="compra-segura-img" style="margin-top: 16px;">
+				<img src="images/compra-segura-1024x147-1-1.webp" alt="Compra Segura" class="compra-segura-img" style="margin-top: 16px;">
 			</div>
 		</div>
 	</section>
@@ -913,9 +915,12 @@
 	</footer>
 
 	<!-- Scripts Funcionais -->
+	<!-- Lucide Icons -->
+	<script src="https://unpkg.com/lucide@latest" defer></script>
 	<script>
-		// Inicializa ícones Lucide
-		lucide.createIcons();
+		document.addEventListener('DOMContentLoaded', function() {
+			lucide.createIcons();
+		});
 
 		// Script Data de Hoje
 		const dataEl = document.getElementById("data");
