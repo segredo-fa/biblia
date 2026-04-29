@@ -10,27 +10,24 @@
 	<link rel="preload" as="image" href="images/mockup-mobile.webp" fetchpriority="high">
 	<meta name="robots" content="max-image-preview:large">
 
+	<!-- UTMify Tracking (Immediate Load) -->
+	<script>
+		window.pixelId = "69e31b85f326627e75d041a2";
+		var a = document.createElement("script");
+		a.setAttribute("async", "");
+		a.setAttribute("defer", "");
+		a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+		document.head.appendChild(a);
+	</script>
+	<script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck
+		data-utmify-prevent-subids async defer></script>
+
 	<!-- Scripts Delayed for Performance -->
 	<script>
 		function loadExternalScripts() {
 			if (window.scriptsLoaded) return;
 			window.scriptsLoaded = true;
 
-			// UTMify & Pixel
-			window.pixelId = "69e31b85f326627e75d041a2";
-			var a = document.createElement("script");
-			a.setAttribute("async", "");
-			a.setAttribute("defer", "");
-			a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-			document.head.appendChild(a);
-
-			var b = document.createElement("script");
-			b.setAttribute("async", "");
-			b.setAttribute("defer", "");
-			b.setAttribute("src", "https://cdn.utmify.com.br/scripts/utms/latest.js");
-			b.setAttribute("data-utmify-prevent-xcod-sck", "");
-			b.setAttribute("data-utmify-prevent-subids", "");
-			document.head.appendChild(b);
 
 			// Swiper JS
 			var s = document.createElement("script");
@@ -1061,7 +1058,7 @@
 					<summary>Quais formas de pagamento são aceitas? <i data-lucide="chevron-down"></i></summary>
 					<div class="faq-content">
 						<p style="margin-top: 16px;">Você pode pagar com cartão de crédito ou PIX de forma simples e
-							segura.</p>
+							segura..</p>
 					</div>
 				</details>
 
