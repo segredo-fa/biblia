@@ -502,17 +502,13 @@
 		/*# sourceURL=global-styles-inline-css */
 	</style>
 	<style id="critical-css">
-		/* CSS Crítico da Primeira Dobra */
-		.e-con.e-parent,
-		.elementor-widget-container {
-			width: 100%;
-			box-sizing: border-box;
-		}
-
-		.elementor-element-7e96797a {
+		/* CSS Crítico da Primeira Dobra (Otimizado) */
+		.hero-top-bar {
 			background-color: #ED1068;
 			display: flex;
 			justify-content: center;
+			width: 100%;
+			box-sizing: border-box;
 		}
 
 		#data {
@@ -522,54 +518,61 @@
 			font-weight: 500;
 			font-family: "Poppins", Sans-serif;
 			padding: 10px;
+			margin: 0;
 		}
 
-		.elementor-element-de482f3 {
+		.hero-section {
 			background-color: #FFFFFF;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			padding: 0 20px 30px;
+			width: 100%;
+			box-sizing: border-box;
 		}
 
-		.elementor-element-c0f156b .elementor-heading-title {
+		.hero-title {
 			font-family: "Poppins", Sans-serif;
 			font-weight: 700;
 			color: #333333;
 			text-align: center;
-			margin-top: 20px;
+			margin: 20px 0 0 0;
+			font-size: 32px;
+			line-height: 1.2;
 		}
 
-		.elementor-element-92fc2e0 .elementor-heading-title {
+		.hero-subtitle {
 			font-family: "Poppins", Sans-serif;
 			font-weight: 400;
 			color: #333333;
 			text-align: center;
-			margin-top: 10px;
+			margin: 10px 0 0 0;
+			font-size: 24px;
+			line-height: 1.4;
 		}
 
-		.elementor-element-bf8cbb6 {
+		.hero-image-wrapper {
 			display: flex;
 			justify-content: center;
 			width: 100%;
 			margin-top: 20px;
 		}
 
-		.elementor-element-bf8cbb6 img {
+		.hero-image-wrapper img {
 			max-width: 90%;
 			height: auto;
 			display: block;
 			margin: 0 auto;
 		}
 
-		.elementor-element-662de51 {
+		.hero-cta-wrapper {
 			width: 100%;
 			display: flex;
 			justify-content: center;
 			margin-top: 20px;
 		}
 
-		.elementor-element-662de51 .elementor-button {
+		.hero-cta-button {
 			background-color: #00BD39;
 			font-family: "Poppins", Sans-serif;
 			font-size: 22px;
@@ -583,18 +586,24 @@
 			text-decoration: none;
 			width: 100%;
 			max-width: 400px;
+			box-sizing: border-box;
+			transition: transform 0.3s ease;
+		}
+		
+		.hero-cta-button:hover {
+			transform: scale(1.05);
 		}
 
 		@media(max-width: 767px) {
-			.elementor-element-c0f156b .elementor-heading-title {
+			.hero-title {
 				font-size: 23px;
 			}
 
-			.elementor-element-92fc2e0 .elementor-heading-title {
+			.hero-subtitle {
 				font-size: 16px;
 			}
 
-			.elementor-element-662de51 .elementor-button {
+			.hero-cta-button {
 				font-size: 17px;
 				padding: 21px 18px;
 			}
@@ -703,93 +712,29 @@
 <body
 	class="wp-singular page-template page-template-elementor_canvas page page-id-11849 wp-theme-page-builder-framework wpbf wpbf-biblia wpbf-no-sidebar elementor-default elementor-template-canvas elementor-kit-6 elementor-page elementor-page-11849">
 	<div data-elementor-type="wp-post" data-elementor-id="11849" class="elementor elementor-11849">
-		<div class="elementor-element elementor-element-7e96797a e-flex e-con-boxed e-con e-parent e-lazyloaded"
-			data-id="7e96797a" data-element_type="container" data-e-type="container" data-settings="{"
-			background_background":"classic"}"="">
-			<div class="e-con-inner">
-				<div class="elementor-element elementor-element-221ea21 elementor-widget elementor-widget-html"
-					data-id="221ea21" data-element_type="widget" data-e-type="widget" data-widget_type="html.default">
-					<div class="elementor-widget-container">
-						<div id="data" style="
-  text-align: center;
-  color: #FFFFFF;
-  font-size: 14px; /* 🔧 ALTERE AQUI O TAMANHO */
-  font-weight: 500; /* 🔧 ALTERE AQUI A ESPESSURA */
-  font-family: Poppins;
-  padding: 10px;
-">⚡ Desconto só HOJE nessa página 18/04/2026</div>
-
-						<script>
-							var data = new Date();
-
-							var dia = String(data.getDate()).padStart(2, '0');
-							var mes = String(data.getMonth() + 1).padStart(2, '0');
-							var ano = data.getFullYear();
-
-							var str_data = dia + '/' + mes + '/' + ano;
-
-							document.getElementById("data").innerHTML =
-								'⚡ Desconto só HOJE nessa página ' + str_data;
-						</script>
-					</div>
-				</div>
+		<header class="hero-top-bar">
+			<div id="data">⚡ Desconto só HOJE nessa página 18/04/2026</div>
+			<script>
+				var data = new Date();
+				var dia = String(data.getDate()).padStart(2, '0');
+				var mes = String(data.getMonth() + 1).padStart(2, '0');
+				var ano = data.getFullYear();
+				var str_data = dia + '/' + mes + '/' + ano;
+				document.getElementById("data").innerHTML = '⚡ Desconto só HOJE nessa página ' + str_data;
+			</script>
+		</header>
+		<section class="hero-section">
+			<h1 class="hero-title">300 Capas de Bíblia Personalizadas em Minutos com Modelos Prontos no Canva</h1>
+			<h2 class="hero-subtitle">Personalize em minutos e envie direto para impressão sem erro de tamanho, sem dor de cabeça.</h2>
+			<div class="hero-image-wrapper">
+				<img fetchpriority="high" loading="eager" decoding="sync" width="720" height="720" src="images/mockup-mobile.webp" alt="300 Capas de Bíblia">
 			</div>
-		</div>
-		<div class="elementor-element elementor-element-de482f3 e-flex e-con-boxed e-con e-parent e-lazyloaded"
-			data-id="de482f3" data-element_type="container" data-e-type="container" data-settings="{"
-			background_background":"classic"}"="">
-			<div class="e-con-inner">
-				<div class="elementor-element elementor-element-9ebc8fd elementor-widget elementor-widget-html"
-					data-id="9ebc8fd" data-element_type="widget" data-e-type="widget" data-widget_type="html.default">
-					<div class="elementor-widget-container">
-
-					</div>
-				</div>
-				<div class="elementor-element elementor-element-3905ac4 elementor-widget elementor-widget-html"
-					data-id="3905ac4" data-element_type="widget" data-e-type="widget" data-widget_type="html.default">
-					<div class="elementor-widget-container">
-
-					</div>
-				</div>
-				<div class="elementor-element elementor-element-c0f156b elementor-widget-mobile__width-inherit elementor-widget elementor-widget-heading"
-					data-id="c0f156b" data-element_type="widget" data-e-type="widget"
-					data-widget_type="heading.default">
-					<div class="elementor-widget-container">
-						<h2 class="elementor-heading-title elementor-size-default">300 Capas de Bíblia Personalizadas em
-							Minutos com Modelos Prontos no Canva</h2>
-					</div>
-				</div>
-				<div class="elementor-element elementor-element-92fc2e0 elementor-widget-mobile__width-inherit elementor-widget elementor-widget-heading"
-					data-id="92fc2e0" data-element_type="widget" data-e-type="widget"
-					data-widget_type="heading.default">
-					<div class="elementor-widget-container">
-						<h2 class="elementor-heading-title elementor-size-default">Personalize em minutos e envie direto
-							para impressão sem erro de tamanho, sem dor de cabeça.</h2>
-					</div>
-				</div>
-				<div class="elementor-element elementor-element-bf8cbb6 elementor-widget elementor-widget-image"
-					data-id="bf8cbb6" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
-					<div class="elementor-widget-container">
-						<img fetchpriority="high" loading="eager" decoding="sync" width="720" height="720"
-							src="images/mockup-mobile.webp"
-							class="attachment-large size-large wp-image-12672" alt="300 Capas de Bíblia">
-					</div>
-				</div>
-				<div class="elementor-element elementor-element-662de51 elementor-align-center elementor-mobile-align-justify 0 elementor-widget elementor-widget-button"
-					data-id="662de51" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
-					<div class="elementor-widget-container">
-						<div class="elementor-button-wrapper">
-							<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-grow"
-								href="#card">
-								<span class="elementor-button-content-wrapper">
-									<span class="elementor-button-text">👉 QUERO MINHAS 300 CAPAS</span>
-								</span>
-							</a>
-						</div>
-					</div>
-				</div>
+			<div class="hero-cta-wrapper">
+				<a class="hero-cta-button" href="#card">
+					👉 QUERO MINHAS 300 CAPAS
+				</a>
 			</div>
-		</div>
+		</section>
 		<div class="elementor-element elementor-element-b9f9a3b e-flex e-con-boxed e-con e-parent e-lazyloaded"
 			data-id="b9f9a3b" data-element_type="container" data-e-type="container" data-settings="{"
 			background_background":"classic"}"="">
