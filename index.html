@@ -3,6 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
+	<link rel="preload" as="image" href="images/mockup-mobile.webp" fetchpriority="high">
 	<title>300 Capas de Bíblia Personalizadas – Site Oficial</title>
 	<link rel="dns-prefetch" href="https://cdn.utmify.com.br">
 	<link rel="preconnect" href="https://cdn.utmify.com.br">
@@ -10,7 +11,6 @@
 	<link rel="preconnect" href="https://pay.wiapy.com">
 	<link rel="dns-prefetch" href="https://api6.ipify.org">
 	<link rel="preconnect" href="https://api6.ipify.org">
-	<link rel="preload" as="image" href="images/mockup-mobile.webp" fetchpriority="high">
 	<link rel="preload" href="fonts/poppins-e215b6a9.woff2" as="font" type="font/woff2" crossorigin>
 	<link rel="preload" href="fonts/poppins-95fdc599.woff2" as="font" type="font/woff2" crossorigin>
 	<link rel="preload" href="fonts/poppins-3a2ac464.woff2" as="font" type="font/woff2" crossorigin>
@@ -599,6 +599,20 @@
 				padding: 21px 18px;
 			}
 		}
+
+		/* Swiper Reflow Fix */
+		#biblia-swiper {
+			min-height: 400px;
+			width: 100%;
+			display: block;
+			overflow: hidden;
+		}
+
+		@media (max-width: 767px) {
+			#biblia-swiper {
+				min-height: 250px;
+			}
+		}
 	</style>
 	<link rel="stylesheet" id="wpbf-icon-font-css" href="css/iconfont-min.css" media="print" onload="this.media='all'">
 	<link rel="stylesheet" id="wpbf-style-css" href="css/style-min.css" media="print" onload="this.media='all'">
@@ -657,8 +671,6 @@
 	<link rel="stylesheet" id="elementor-icons-fa-solid-css" href="css/solid.min.css" media="print"
 		onload="this.media='all'">
 
-	<script src="js/jquery.min.js" id="jquery-core-js" defer></script>
-	<script src="js/jquery-migrate.min.js" id="jquery-migrate-js" defer></script>
 	<meta name="generator" content="WordPress 6.9.4">
 	<meta name="generator"
 		content="Elementor 4.0.1; features: additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-swap">
@@ -1622,7 +1634,6 @@
 		fetchpriority="low"></script>
 	<script src="js/webpack.runtime.min.js" id="elementor-webpack-runtime-js" defer></script>
 	<script src="js/frontend-modules.min.js" id="elementor-frontend-modules-js" defer></script>
-	<script src="js/core.min.js" id="jquery-ui-core-js" defer></script>
 	<script id="elementor-frontend-js-before">
 		var elementorFrontendConfig = { "environmentMode": { "edit": false, "wpPreview": false, "isScriptDebug": false }, "i18n": { "shareOnFacebook": "Compartilhar no Facebook", "shareOnTwitter": "Compartilhar no Twitter", "pinIt": "Fixar", "download": "Baixar", "downloadImage": "Baixar imagem", "fullscreen": "Tela cheia", "zoom": "Zoom", "share": "Compartilhar", "playVideo": "Reproduzir v\u00eddeo", "previous": "Anterior", "next": "Pr\u00f3ximo", "close": "Fechar", "a11yCarouselPrevSlideMessage": "Slide anterior", "a11yCarouselNextSlideMessage": "Pr\u00f3ximo slide", "a11yCarouselFirstSlideMessage": "Este \u00e9 o primeiro slide", "a11yCarouselLastSlideMessage": "Este \u00e9 o \u00faltimo slide", "a11yCarouselPaginationBulletMessage": "Ir para o slide" }, "is_rtl": false, "breakpoints": { "xs": 0, "sm": 480, "md": 768, "lg": 1025, "xl": 1440, "xxl": 1600 }, "responsive": { "breakpoints": { "mobile": { "label": "Dispositivos m\u00f3veis no modo retrato", "value": 767, "default_value": 767, "direction": "max", "is_enabled": true }, "mobile_extra": { "label": "Dispositivos m\u00f3veis no modo paisagem", "value": 880, "default_value": 880, "direction": "max", "is_enabled": false }, "tablet": { "label": "Tablet no modo retrato", "value": 1024, "default_value": 1024, "direction": "max", "is_enabled": true }, "tablet_extra": { "label": "Tablet no modo paisagem", "value": 1200, "default_value": 1200, "direction": "max", "is_enabled": false }, "laptop": { "label": "Notebook", "value": 1366, "default_value": 1366, "direction": "max", "is_enabled": false }, "widescreen": { "label": "Tela ampla (widescreen)", "value": 2400, "default_value": 2400, "direction": "min", "is_enabled": false } }, "hasCustomBreakpoints": false }, "version": "4.0.1", "is_static": false, "experimentalFeatures": { "additional_custom_breakpoints": true, "container": true, "nested-elements": true, "global_classes_should_enforce_capabilities": true, "e_variables": true, "e_opt_in_v4_page": true, "e_components": true, "e_interactions": true, "e_widget_creation": true, "import-export-customization": true }, "urls": { "assets": "#", "ajaxurl": "#", "uploadUrl": "#" }, "nonces": { "floatingButtonsClickTracking": "baf12fd8ac", "atomicFormsSendForm": "7fcdd1c067" }, "swiperClass": "swiper", "settings": { "page": [], "editorPreferences": [] }, "kit": { "active_breakpoints": ["viewport_mobile", "viewport_tablet"], "global_image_lightbox": "yes", "lightbox_enable_counter": "yes", "lightbox_enable_fullscreen": "yes", "lightbox_enable_zoom": "yes", "lightbox_enable_share": "yes", "lightbox_title_src": "title", "lightbox_description_src": "description" }, "post": { "id": 11849, "title": "300%20Capas%20de%20B%C3%ADblia%20Personalizadas%20%E2%80%93%20Site%20Oficial", "excerpt": "", "featuredImage": false } };
 		//# sourceURL=elementor-frontend-js-before
@@ -1638,11 +1649,11 @@
 
 
 	<script>
-		// Inicialização robusta do carrossel de Bíblias
-		document.addEventListener('DOMContentLoaded', function () {
+		// Inicialização robusta do carrossel de Bíblias (Vanilla JS)
+		(function() {
 			const initSwiper = () => {
 				const swiperElement = document.querySelector('#biblia-swiper');
-				if (swiperElement && !swiperElement.swiper) {
+				if (swiperElement && !swiperElement.swiper && typeof Swiper !== 'undefined') {
 					const swiper = new Swiper('#biblia-swiper', {
 						loop: true,
 						speed: 6000,
@@ -1659,38 +1670,30 @@
 							pauseOnMouseEnter: false,
 							waitForTransition: false,
 						},
-						// Garante que o efeito linear seja aplicado via JS também
 						on: {
 							init: function () {
-								this.el.querySelector('.swiper-wrapper').style.transitionTimingFunction = 'linear';
+								const wrapper = this.el.querySelector('.swiper-wrapper');
+								if (wrapper) wrapper.style.transitionTimingFunction = 'linear';
 							},
 							touchEnd: function () {
 								this.autoplay.start();
 							},
 						},
 					});
-
-					// Forçar o início do autoplay
-					swiper.autoplay.start();
+					if (swiper.autoplay) swiper.autoplay.start();
 				}
 			};
 
-			// Tenta inicializar quando o navegador estiver ocioso para evitar reflow durante o carregamento crítico
-			if ('requestIdleCallback' in window) {
-				requestIdleCallback(() => setTimeout(initSwiper, 500));
+			// Inicializa assim que o DOM estiver pronto ou se já estiver carregado
+			if (document.readyState === 'loading') {
+				document.addEventListener('DOMContentLoaded', initSwiper);
 			} else {
-				window.addEventListener('load', () => setTimeout(initSwiper, 1000));
+				initSwiper();
 			}
 
-			// Hook extra para garantir que o Elementor Frontend não quebre a inicialização manual
-			if (window.elementorFrontend) {
-				elementorFrontend.hooks.addAction('frontend/element_ready/image-carousel.default', function ($scope) {
-					if ($scope.find('#biblia-swiper').length) {
-						initSwiper();
-					}
-				});
-			}
-		});
+			// Fallback para garantir inicialização após carregamento de scripts externos (defer)
+			window.addEventListener('load', () => setTimeout(initSwiper, 100));
+		})();
 	</script>
 
 </body>
